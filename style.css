@@ -1,0 +1,390 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Quicksand", sans-serif;
+  position: relative;
+  z-index: 3;
+}
+
+canvas {
+  display: block;
+  position: fixed;
+  z-index: 0;
+}
+
+#delete {
+  display: none;
+}
+
+#filtro {
+  background-color: #f5f5f550;
+}
+ 
+/* ____________________Menu______________________________ */
+
+#menu {
+  display: flex;
+  background-color: #f5f5f582;
+}
+
+#logo {
+  display: flex;
+  justify-content: center;
+  font-size: 2.5vw;
+  text-shadow: rgba(0, 0, 0, 0.553) 0.1em 0.1em 0.2em;
+  font-weight: 400;
+  align-items: center;
+  text-align: center;
+  width: 50vw;
+  height: auto;
+}
+
+#logo p {
+  color: rgba(0, 0, 0, 0.679);
+}
+
+#logo img {
+  width: 8vw;
+}
+
+.menu-drop {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+}
+
+nav {
+  margin: auto;
+  position: relative;
+}
+
+nav h2 {
+  font-size: 2.5vw;
+  border-radius: 1vw;
+  position: relative;
+  background: rgba(165, 42, 42, 0.345);
+  width: 15vw;
+  text-transform: uppercase;
+  margin: 0;
+  color: inherit;
+  font-weight: 200;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 4px 4px 20px -2px rgba(0, 0, 0, 0.35);
+  transition: all 0.4s;
+}
+
+#clique:checked ~ h2:hover {
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 5px -1px rgba(0, 0, 0, 0.35);
+}
+
+#clique {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+  opacity: 0;
+  cursor: pointer;
+  height: 5vh;
+}
+
+h2::after {
+  color: rgba(0, 0, 0, 0.679);
+  height: 4vw;
+  width: 4vw;
+  aspect-ratio: 1;
+  background: currentColor;
+  content: "";
+  clip-path: polygon(50% 25%, 20% 80%, 80% 80%);
+  transform: rotate(180deg) scale(0.75);
+}
+
+#clique:not(:checked) ~ h2::after {
+  transform: rotate(0deg) scale(0.75);
+  transition: 1s ease;
+}
+
+#clique:checked ~ ul {
+  visibility: hidden;
+  opacity: 0;
+}
+
+#clique:not(:checked) ~ h2 {
+  border-radius: 1vw 1vw 0px 0px;
+}
+
+#clique:not(:checked) ~ ul {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  background: rgba(165, 42, 42, 0.345);
+  list-style: none;
+  overflow: hidden;
+  text-align: center;
+  height: auto;
+  width: 15vw;
+  position: absolute;
+  border-radius: 0px 0px 1vw 1vw;
+}
+
+nav ul li {
+  position: relative;
+  display: inline-block;
+  font-size: 1.5vw;
+  line-height: 2;
+  width: 100%;
+  margin-top: 4%;
+  transition: background 3s;
+}
+
+nav ul li:hover,
+nav ul li a:focus {
+  background: rgba(89, 62, 6, 0.44);
+  transition: background 0.45s;
+}
+
+nav ul li a {
+  text-decoration: none;
+  display: block;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.679);
+}
+
+.menu-drop {
+  margin: auto;
+}
+
+/* ________________________Menu-fim______________________ */
+
+.barra {
+  height: 0.1vh;
+  background-color: #00000020;
+  z-index: 2;
+}
+
+#cabecalho {
+  text-shadow: #000000a2 0.1em 0.1em 0.2em;
+  margin: 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15vw;
+  z-index: 2;
+}
+
+#ola {
+  font-size: 2.5vw;
+  color: rgba(0, 0, 0, 0.679);
+}
+
+#nome {
+  font-size: 1.5vw;
+  color: rgba(0, 0, 0, 0.679);
+}
+
+#sobre {
+  margin: 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.15vw;
+  letter-spacing: 1px;
+  height: 15vw;
+  z-index: 2;
+}
+
+#sobre p {
+  text-shadow: #4e4a4a 0.1em 0.1em 0.2em;
+  margin: 1.5vw;
+  color: rgba(0, 0, 0, 0.679);
+}
+
+#projetos {
+  margin: 4vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+#projetos div {
+  width: auto;
+  height: 20vw;
+  margin: 4vw;
+  border-radius: 2vw;
+  box-shadow: inset 0 0 1vw rgba(0, 0, 0, 0.23), 0 0 1vw rgba(0, 0, 0, 0.4);
+}
+
+#projetos div a {
+  display: flex;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.679);
+  height: 20vw;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2vw;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-decoration: none;
+  border-radius: 2vw;
+  border: 0.1vw solid black;
+  overflow: hidden;
+  text-shadow: #4e4a4a 0.1em 0.1em 0.2em;
+}
+
+#projetos div a img {
+  width: 20vw;
+}
+
+#skills {
+  margin: 8vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#skills p {
+  font-size: 8vw;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.679);
+}
+
+#skills img {
+  width: 60vw;
+  margin: 4vw;
+}
+
+#contatos {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+#contatos div a {
+  font-size: 1.5vw;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.679);
+  text-decoration: none;
+}
+
+#contatos div a img {
+  width: 8vw;
+}
+
+footer {
+  margin-top: 5vw;
+  background-color: rgba(150, 49, 150, 0.396);
+  z-index: 2;
+  text-align: center;
+  border-radius: 0px 0px 1% 1%;
+}
+
+/* ______________________Responsive___________________ */
+
+@media screen and (max-width: 900px) {
+  #logo p {
+    display: none;
+  }
+
+  #logo img {
+    width: 15vw;
+  }
+
+  nav h2 {
+    font-size: 8vw;
+    border-radius: 2vw;
+    width: 32vw;
+    font-weight: 400;
+  }
+
+  h2::after {
+    height: 8vw;
+    width: 8vw;
+    color: rgba(0, 0, 0, 0.679);
+  }
+
+  #clique:not(:checked) ~ h2 {
+    border-radius: 2vw 2vw 0px 0px;
+  }
+
+  nav ul {
+    width: 32vw;
+    height: auto;
+    border-radius: 0px 0px 2vw 2vw;
+  }
+
+  nav ul li {
+    font-size: 5vw;
+  }
+
+  #cabecalho {
+    height: 32vw;
+  }
+
+  #ola {
+    font-size: 6vw;
+  }
+
+  #nome {
+    font-size: 3.5vw;
+  }
+
+  #sobre {
+    padding-top: 12vw;
+    padding-bottom: 12vw;
+    font-size: 2.5vw;
+  }
+
+  #sobre p {
+    margin: 3.5vw;
+  }
+
+  #projetos {
+    padding-top: 10vw;
+  }
+
+  #projetos div {
+    width: 70vw;
+    height: auto;
+    border-radius: 4vw;
+    box-shadow: inset 0 0 2vw rgba(0, 0, 0, 0.23), 0 0 2vw rgba(0, 0, 0, 0.4);
+  }
+
+  #projetos div a {
+    height: auto;
+    width: 70vw;
+    font-size: 6vw;
+    border-radius: 4vw;
+    text-align: center;
+  }
+
+  #projetos div a img {
+    width: 70vw;
+  }
+
+  #skills {
+    padding: 10vw;
+  }
+
+  #contatos div a p {
+    display: none;
+  }
+
+  #contatos div a img {
+    width: 18vw;
+  }
+}
